@@ -34,8 +34,23 @@
 * app.js则是服务端，监听各种事件并处理
 
 ### express模块
-> express
+> express是一个基于Node.js平台的极简、灵活的 web 应用开发框架，它提供一系列强大的特性，帮助你创建各种 Web 和移动设备应用。
 
+* 本聊天室的应用
+
+
+		var express = require('express');
+		var app = express();
+		var http = require('http').Server(app);
+		var io = require('socket.io')(http);
+		
+		var userList = new Array();
+		
+		app.use("/static",express.static(__dirname + '/static'));
+		
+		app.get('/', function(req, res){
+		  res.sendFile(__dirname + '/views/chat.html');
+		});
 
 
 ### 代码
